@@ -1,0 +1,241 @@
+﻿:root {
+    --bg-primary: #0f0f1a;
+    --bg-surface: #1a1a2e;
+    --accent-cyan: #00d4ff;
+    --accent-magenta: #ff00a0;
+    --text-primary: #ffffff;
+    --text-muted: #a0a0b0;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+a {
+    text-decoration: none;
+}
+
+.text-cyan {
+    color: var(--accent-cyan);
+}
+
+.text-magenta {
+    color: var(--accent-magenta);
+}
+
+/* Navbar */
+
+.navbar-tech {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+    .navbar-tech .nav-link {
+        color: var(--text-muted);
+        transition: color 0.2s ease;
+    }
+
+        .navbar-tech .nav-link:hover,
+        .navbar-tech .nav-link.active {
+            color: var(--accent-cyan);
+        }
+
+.navbar-brand {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* Hero */
+
+.hero-tech {
+    padding: 80px 0;
+    background: linear-gradient(-45deg, #0f0f1a, #1a1a2e, #16213e, #0f0f1a);
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero-tech h1 {
+    font-weight: 800;
+}
+
+.hero-tech .highlight {
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Cards de producto */
+
+.tech-card {
+    background-color: var(--bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    height: 100%;
+}
+
+    .tech-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(0, 212, 255, 0.18);
+        border-color: rgba(0, 212, 255, 0.35);
+    }
+
+    .tech-card .card-img-top {
+        height: 200px;
+        object-fit: cover;
+        background-color: #0d0d18;
+    }
+
+    .tech-card .card-body {
+        padding: 1.1rem;
+    }
+
+    .tech-card .card-title {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    .tech-card .card-text {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+
+    .tech-card .precio {
+        color: var(--accent-cyan);
+        font-weight: 700;
+        font-size: 1.25rem;
+    }
+
+/* Badges de estado */
+
+.badge-activo {
+    background-color: #1e8e5a;
+    color: #fff;
+}
+
+.badge-nuevo {
+    background-color: var(--accent-cyan);
+    color: #0f0f1a;
+    animation: pulse 2s infinite;
+}
+
+.badge-oferta {
+    background-color: var(--accent-magenta);
+    color: #fff;
+}
+
+.badge-agotado {
+    background-color: #4a4a5a;
+    color: var(--text-muted);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.5);
+    }
+
+    70% {
+        box-shadow: 0 0 0 8px rgba(0, 212, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 212, 255, 0);
+    }
+}
+
+/* Categorias */
+
+.categoria-card {
+    background-color: var(--bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    height: 100%;
+}
+
+    .categoria-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 0, 160, 0.35);
+    }
+
+.categoria-icono {
+    font-size: 2rem;
+    color: var(--accent-cyan);
+}
+
+/* Footer */
+
+.footer-tech {
+    background-color: var(--bg-surface);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
+}
+
+    .footer-tech h5,
+    .footer-tech h6 {
+        color: var(--text-primary);
+    }
+
+    .footer-tech a {
+        color: var(--text-muted);
+    }
+
+        .footer-tech a:hover {
+            color: var(--accent-cyan);
+        }
+
+/* Formulario de contacto */
+
+.form-control,
+.form-select {
+    background-color: var(--bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-primary);
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        background-color: var(--bg-surface);
+        color: var(--text-primary);
+        border-color: var(--accent-cyan);
+        box-shadow: 0 0 0 0.2rem rgba(0, 212, 255, 0.2);
+    }
+
+.form-label {
+    color: var(--text-muted);
+}
+
+.btn-tech {
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.6rem 1.6rem;
+    border-radius: 8px;
+    transition: opacity 0.2s ease;
+}
+
+    .btn-tech:hover {
+        opacity: 0.9;
+        color: #fff;
+    }

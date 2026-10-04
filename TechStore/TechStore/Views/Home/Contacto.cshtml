@@ -1,0 +1,72 @@
+﻿@model TechStore.Models.ContactoViewModel
+@{
+    ViewData["Title"] = "Contactenos";
+}
+
+<div class="container mt-5 mb-5">
+    <div class="text-center mb-5">
+        <h1>Contact<span class="text-cyan">anos</span></h1>
+        <p class="text-muted">Escribinos y te respondemos a la brevedad.</p>
+    </div>
+
+    <div class="row g-5">
+        <div class="col-lg-7">
+            @if (ViewBag.Enviado == true)
+            {
+                <div class="alert alert-success">
+                    Tu mensaje fue enviado correctamente. Gracias por escribirnos.
+                </div>
+            }
+
+            <form asp-controller="Home" asp-action="Contacto" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Nombre" class="form-label"></label>
+                    <input asp-for="Nombre" class="form-control" placeholder="Tu nombre completo" />
+                    <span asp-validation-for="Nombre" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="tucorreo@ejemplo.com" />
+                    <span asp-validation-for="Email" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Asunto" class="form-label"></label>
+                    <input asp-for="Asunto" class="form-control" placeholder="Motivo de tu mensaje" />
+                    <span asp-validation-for="Asunto" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Mensaje" class="form-label"></label>
+                    <textarea asp-for="Mensaje" class="form-control" rows="5" placeholder="Escribi tu mensaje aqui"></textarea>
+                    <span asp-validation-for="Mensaje" class="text-danger small"></span>
+                </div>
+
+                <button type="submit" class="btn btn-tech">
+                    <i class="bi bi-send me-2"></i>Enviar mensaje
+                </button>
+            </form>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="categoria-card">
+                <h5 class="mb-3">Informacion de contacto</h5>
+                <p class="text-muted small mb-2">
+                    <i class="bi bi-envelope me-2 text-cyan"></i>contacto@techstore.com
+                </p>
+                <p class="text-muted small mb-2">
+                    <i class="bi bi-telephone me-2 text-cyan"></i>+503 2200-0000
+                </p>
+                <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt me-2 text-cyan"></i>San Salvador, El Salvador
+                </p>
+                <p class="text-muted small mb-0">
+                    <i class="bi bi-clock me-2 text-cyan"></i>Lunes a viernes, 8:00 am - 5:00 pm
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

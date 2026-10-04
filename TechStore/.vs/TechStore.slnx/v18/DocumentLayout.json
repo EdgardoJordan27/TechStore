@@ -1,0 +1,275 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\views\\home\\acercade.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\views\\home\\acercade.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\views\\home\\contacto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\views\\home\\contacto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\views\\categorias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\views\\categorias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\views\\shared\\_productcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\views\\shared\\_productcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\wwwroot\\css\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\wwwroot\\css\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\models\\contactoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\models\\contactoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|c:\\users\\edgar\\desktop\\detalle\\2026\\ciclo iv\\desarrollo_web_fronted\\proyecto_techstore\\techstore\\techstore\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F38D6E49-D2C7-48A5-B999-6A5BFA1149DD}|TechStore\\TechStore.csproj|solutionrelative:techstore\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AcercaDe.cshtml",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Home\\AcercaDe.cshtml",
+              "RelativeDocumentMoniker": "TechStore\\Views\\Home\\AcercaDe.cshtml",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Home\\AcercaDe.cshtml",
+              "RelativeToolTip": "TechStore\\Views\\Home\\AcercaDe.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-23T01:14:10.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Categorias\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechStore\\Views\\Categorias\\Index.cshtml",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Categorias\\Index.cshtml",
+              "RelativeToolTip": "TechStore\\Views\\Categorias\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-23T01:12:34.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "TechStore\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "TechStore\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-23T01:03:12.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_ProductCard.cshtml",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Shared\\_ProductCard.cshtml",
+              "RelativeDocumentMoniker": "TechStore\\Views\\Shared\\_ProductCard.cshtml",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Shared\\_ProductCard.cshtml",
+              "RelativeToolTip": "TechStore\\Views\\Shared\\_ProductCard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-23T00:55:36.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechStore\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "TechStore\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-23T00:53:06.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "TechStore\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "TechStore\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-23T00:07:47.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Contacto.cshtml",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Home\\Contacto.cshtml",
+              "RelativeDocumentMoniker": "TechStore\\Views\\Home\\Contacto.cshtml",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Home\\Contacto.cshtml",
+              "RelativeToolTip": "TechStore\\Views\\Home\\Contacto.cshtml",
+              "ViewState": "AgIAAA4AAAAAAAAAAADwv0gAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-23T01:13:32.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "TechStore\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "TechStore\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-23T00:52:28.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "custom.css",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\wwwroot\\css\\custom.css",
+              "RelativeDocumentMoniker": "TechStore\\wwwroot\\css\\custom.css",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\wwwroot\\css\\custom.css",
+              "RelativeToolTip": "TechStore\\wwwroot\\css\\custom.css",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAcwPEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-08-23T00:49:18.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Productos\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechStore\\Views\\Productos\\Index.cshtml",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Views\\Productos\\Index.cshtml",
+              "RelativeToolTip": "TechStore\\Views\\Productos\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-23T01:00:16.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CategoriasController.cs",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Controllers\\CategoriasController.cs",
+              "RelativeDocumentMoniker": "TechStore\\Controllers\\CategoriasController.cs",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Controllers\\CategoriasController.cs",
+              "RelativeToolTip": "TechStore\\Controllers\\CategoriasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-23T00:03:47.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProductosController.cs",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Controllers\\ProductosController.cs",
+              "RelativeDocumentMoniker": "TechStore\\Controllers\\ProductosController.cs",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Controllers\\ProductosController.cs",
+              "RelativeToolTip": "TechStore\\Controllers\\ProductosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-23T00:00:08.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ContactoViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Models\\ContactoViewModel.cs",
+              "RelativeDocumentMoniker": "TechStore\\Models\\ContactoViewModel.cs",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Models\\ContactoViewModel.cs",
+              "RelativeToolTip": "TechStore\\Models\\ContactoViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-22T23:57:59.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Categoria.cs",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Models\\Categoria.cs",
+              "RelativeDocumentMoniker": "TechStore\\Models\\Categoria.cs",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Models\\Categoria.cs",
+              "RelativeToolTip": "TechStore\\Models\\Categoria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-22T23:56:29.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Models\\Producto.cs",
+              "RelativeDocumentMoniker": "TechStore\\Models\\Producto.cs",
+              "ToolTip": "C:\\Users\\edgar\\Desktop\\Detalle\\2026\\Ciclo IV\\Desarrollo_web_Fronted\\Proyecto_TechStore\\TechStore\\TechStore\\Models\\Producto.cs",
+              "RelativeToolTip": "TechStore\\Models\\Producto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-22T23:55:26.282Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
