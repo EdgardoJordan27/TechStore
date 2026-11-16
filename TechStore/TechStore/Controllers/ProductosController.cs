@@ -1,66 +1,176 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using TechStore.Models;
-using System.Collections.Generic;
+using TechStore.Services.Interfaces;
+using TechStore.ViewModels;
 
 namespace TechStore.Controllers
 {
     public class ProductosController : Controller
     {
-        public static List<Producto> Lista = new List<Producto>
-        {
-            new Producto {
-                Id = 1, Nombre = "Laptop HyperX Blaze Pro",
-                Descripcion = "RTX 4070, 32GB RAM, 1TB SSD, pantalla 165Hz",
-                Precio = 1299.00m, Categoria = "Laptops",
-                Imagen = "productos/laptop.jpg", Stock = 12, Estado = "Activo"
-            },
-            new Producto {
-                Id = 2, Nombre = "Smartphone Nova X1",
-                Descripcion = "Pantalla AMOLED 120Hz, cámara 108MP, 256GB",
-                Precio = 899.00m, Categoria = "Smartphones",
-                Imagen = "productos/smartphone.jpg", Stock = 25, Estado = "Nuevo"
-            },
-            new Producto {
-                Id = 3, Nombre = "Audifonos SonicPro NC",
-                Descripcion = "Cancelación activa de ruido, 40h de batería",
-                Precio = 249.00m, Categoria = "Audio",
-                Imagen = "productos/audifonos.jpg", Stock = 8, Estado = "Activo"
-            },
-            new Producto {
-                Id = 4, Nombre = "SmartWatch FitTrack 6",
-                Descripcion = "Monitoreo de salud 24/7, GPS integrado, resistente al agua",
-                Precio = 179.00m, Categoria = "Wearables",
-                Imagen = "productos/smartwatch.jpg", Stock = 30, Estado = "Activo"
-            },
-            new Producto {
-                Id = 5, Nombre = "Teclado Mecanico RGB Ducky",
-                Descripcion = "Switches mecánicos, retroiluminación RGB personalizable",
-                Precio = 149.00m, Categoria = "Perifericos",
-                Imagen = "productos/teclado.jpg", Stock = 5, Estado = "Oferta"
-            },
-            new Producto {
-                Id = 6, Nombre = "Monitor UltraWide 4K 34\"",
-                Descripcion = "Panel IPS, 144Hz, ideal para trabajo y gaming",
-                Precio = 599.00m, Categoria = "Monitores",
-                Imagen = "productos/monitor.jpg", Stock = 0, Estado = "Agotado"
-            },
-            new Producto {
-                Id = 7, Nombre = "Webcam 4K StreamPro",
-                Descripcion = "Grabación 4K a 30fps, enfoque automático, micrófono dual",
-                Precio = 129.00m, Categoria = "Perifericos",
-                Imagen = "productos/webcam.jpg", Stock = 18, Estado = "Activo"
-            },
-            new Producto {
-                Id = 8, Nombre = "Mouse Gaming Ultraligero",
-                Descripcion = "63 gramos, sensor óptico 26000 DPI, cable paracord",
-                Precio = 79.00m, Categoria = "Perifericos",
-                Imagen = "productos/mouse.jpg", Stock = 42, Estado = "Activo"
-            },
-        };
+        private readonly IProductoService _productoService;
+        private readonly ICategoriaService _categoriaService;
 
-        public IActionResult Index()
+        public ProductosController(IProductoService productoService, ICategoriaService categoriaService)
         {
-            return View(Lista);
+            _productoService = productoService;
+            _categoriaService = categoriaService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var productos = await _productoService.ObtenerTodosAsync();
+            return View(productos);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Agregar()
+        {
+            var modelo = new ProductoFormViewModel { Estado = EstadosProducto.Activo };
+            await CargarCategoriasAsync(modelo);
+            return View(modelo);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Agregar(ProductoFormViewModel modelo)
+        {
+            await ValidarReferenciasAsync(modelo);
+
+            if (!ModelState.IsValid)
+            {
+                await CargarCategoriasAsync(modelo);
+                return View(modelo);
+            }
+
+            await _productoService.AgregarAsync(ConvertirAEntidad(modelo));
+
+            TempData["Mensaje"] = $"El producto \"{modelo.Nombre.Trim()}\" se registró correctamente.";
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Editar(int id)
+        {
+            var producto = await _productoService.ObtenerPorIdAsync(id);
+            if (producto is null)
+            {
+                return NotFound();
+            }
+
+            var modelo = new ProductoFormViewModel
+            {
+                Id = producto.Id,
+                Nombre = producto.Nombre,
+                Descripcion = producto.Descripcion,
+                Precio = producto.Precio,
+                CategoriaId = producto.CategoriaId,
+                Stock = producto.Stock,
+                Estado = producto.Estado,
+                Imagen = producto.Imagen
+            };
+
+            await CargarCategoriasAsync(modelo);
+            return View(modelo);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Editar(int id, ProductoFormViewModel modelo)
+        {
+            if (id != modelo.Id)
+            {
+                return NotFound();
+            }
+
+            await ValidarReferenciasAsync(modelo);
+
+            if (!ModelState.IsValid)
+            {
+                await CargarCategoriasAsync(modelo);
+                return View(modelo);
+            }
+
+            var actualizado = await _productoService.EditarAsync(ConvertirAEntidad(modelo));
+            if (!actualizado)
+            {
+                return NotFound();
+            }
+
+            TempData["Mensaje"] = $"El producto \"{modelo.Nombre.Trim()}\" se actualizó correctamente.";
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Eliminar(int id)
+        {
+            var producto = await _productoService.ObtenerPorIdAsync(id);
+            if (producto is null)
+            {
+                return NotFound();
+            }
+
+            return View(producto);
+        }
+
+        [HttpPost, ActionName("Eliminar")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EliminarConfirmado(int id)
+        {
+            var producto = await _productoService.ObtenerPorIdAsync(id);
+            if (producto is null)
+            {
+                return NotFound();
+            }
+
+            var eliminado = await _productoService.EliminarAsync(id);
+            if (!eliminado)
+            {
+                return NotFound();
+            }
+
+            TempData["Mensaje"] = $"El producto \"{producto.Nombre}\" se eliminó correctamente.";
+            return RedirectToAction(nameof(Index));
+        }
+
+        private async Task CargarCategoriasAsync(ProductoFormViewModel modelo)
+        {
+            var categorias = await _categoriaService.ObtenerTodasAsync();
+            modelo.Categorias = categorias
+                .Select(c => new SelectListItem(c.Nombre, c.Id.ToString()))
+                .ToList();
+        }
+
+        private async Task ValidarReferenciasAsync(ProductoFormViewModel modelo)
+        {
+            if (modelo.CategoriaId.HasValue)
+            {
+                var categoria = await _categoriaService.ObtenerPorIdAsync(modelo.CategoriaId.Value);
+                if (categoria is null)
+                {
+                    ModelState.AddModelError(nameof(modelo.CategoriaId), "La categoría seleccionada no existe.");
+                }
+            }
+
+            if (!string.IsNullOrEmpty(modelo.Estado) && !EstadosProducto.Todos.Contains(modelo.Estado))
+            {
+                ModelState.AddModelError(nameof(modelo.Estado), "El estado seleccionado no es válido.");
+            }
+        }
+
+        private static Producto ConvertirAEntidad(ProductoFormViewModel modelo)
+        {
+            return new Producto
+            {
+                Id = modelo.Id,
+                Nombre = modelo.Nombre.Trim(),
+                Descripcion = modelo.Descripcion.Trim(),
+                Precio = modelo.Precio.GetValueOrDefault(),
+                CategoriaId = modelo.CategoriaId.GetValueOrDefault(),
+                Stock = modelo.Stock.GetValueOrDefault(),
+                Estado = modelo.Estado,
+                Imagen = string.IsNullOrWhiteSpace(modelo.Imagen) ? null : modelo.Imagen.Trim()
+            };
         }
     }
 }

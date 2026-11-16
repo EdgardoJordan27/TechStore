@@ -1,0 +1,49 @@
+@model TechStore.Models.Producto
+@{
+    ViewData["Title"] = "Eliminar producto";
+}
+
+<div class="container panel-admin panel-estrecho">
+    <div class="panel-cabecera">
+        <div>
+            <h1 class="panel-titulo">Eliminar producto</h1>
+            <p class="panel-subtitulo">Revise los datos antes de confirmar la eliminación.</p>
+        </div>
+    </div>
+
+    <div class="aviso aviso-error" role="alert">
+        Esta acción elimina el producto de la base de datos y no se puede deshacer.
+    </div>
+
+    <div class="formulario-panel">
+        <dl class="detalle-lista">
+            <dt>Identificador</dt>
+            <dd>@Model.Id</dd>
+
+            <dt>Nombre</dt>
+            <dd>@Model.Nombre</dd>
+
+            <dt>Descripción</dt>
+            <dd>@Model.Descripcion</dd>
+
+            <dt>Categoría</dt>
+            <dd>@Model.Categoria?.Nombre</dd>
+
+            <dt>Precio</dt>
+            <dd>$@Model.Precio.ToString("N2")</dd>
+
+            <dt>Stock</dt>
+            <dd>@Model.Stock</dd>
+
+            <dt>Estado</dt>
+            <dd>@Model.Estado</dd>
+        </dl>
+
+        <form asp-action="Eliminar" asp-route-id="@Model.Id" method="post">
+            <div class="formulario-pie">
+                <a asp-action="Index" class="btn btn-secundario">Cancelar</a>
+                <button type="submit" class="btn btn-peligro">Eliminar producto</button>
+            </div>
+        </form>
+    </div>
+</div>

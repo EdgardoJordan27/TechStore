@@ -1,0 +1,20 @@
+using TechStore.Models;
+
+namespace TechStore.Services.Interfaces
+{
+    public enum ResultadoEliminacion
+    {
+        Eliminada,
+        NoEncontrada,
+        TieneProductos
+    }
+
+    public interface ICategoriaService
+    {
+        Task<List<Categoria>> ObtenerTodasAsync();
+        Task<Categoria?> ObtenerPorIdAsync(int id);
+        Task AgregarAsync(Categoria categoria);
+        Task<bool> EditarAsync(Categoria categoria);
+        Task<ResultadoEliminacion> EliminarAsync(int id);
+    }
+}

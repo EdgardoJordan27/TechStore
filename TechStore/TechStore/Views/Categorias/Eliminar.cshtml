@@ -1,0 +1,54 @@
+@model TechStore.Models.Categoria
+@{
+    ViewData["Title"] = "Eliminar categoría";
+    var cantidad = Model.Productos.Count;
+}
+
+<div class="container panel-admin panel-estrecho">
+    <div class="panel-cabecera">
+        <div>
+            <h1 class="panel-titulo">Eliminar categoría</h1>
+            <p class="panel-subtitulo">Revise los datos antes de confirmar la eliminación.</p>
+        </div>
+    </div>
+
+    @if (cantidad > 0)
+    {
+        <div class="aviso aviso-error" role="alert">
+            Esta categoría tiene @cantidad producto@(cantidad != 1 ? "s" : "") asociado@(cantidad != 1 ? "s" : "").
+            Reasigne o elimine esos productos antes de eliminarla.
+        </div>
+    }
+    else
+    {
+        <div class="aviso aviso-error" role="alert">
+            Esta acción elimina la categoría de la base de datos y no se puede deshacer.
+        </div>
+    }
+
+    <div class="formulario-panel">
+        <dl class="detalle-lista">
+            <dt>Identificador</dt>
+            <dd>@Model.Id</dd>
+
+            <dt>Nombre</dt>
+            <dd>@Model.Nombre</dd>
+
+            <dt>Descripción</dt>
+            <dd>@Model.Descripcion</dd>
+
+            <dt>Productos asociados</dt>
+            <dd>@cantidad</dd>
+        </dl>
+
+        <form asp-action="Eliminar" asp-route-id="@Model.Id" method="post">
+            <div class="formulario-pie">
+                <a asp-action="Index" class="btn btn-secundario">Cancelar</a>
+                @if (cantidad == 0)
+                {
+                    <button type="submit" class="btn btn-peligro">Eliminar categoría</button>
+                }
+            </div>
+        </form>
+    </div>
+</div>

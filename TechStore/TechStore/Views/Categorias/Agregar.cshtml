@@ -1,0 +1,28 @@
+@model CategoriaFormViewModel
+@{
+    ViewData["Title"] = "Nueva categoría";
+}
+
+<div class="container panel-admin panel-estrecho">
+    <div class="panel-cabecera">
+        <div>
+            <h1 class="panel-titulo">Nueva categoría</h1>
+            <p class="panel-subtitulo">Las categorías se asignan a los productos al registrarlos o editarlos.</p>
+        </div>
+    </div>
+
+    <form asp-action="Agregar" method="post" class="formulario-panel">
+        <div asp-validation-summary="ModelOnly" class="aviso aviso-error"></div>
+
+        <partial name="_CamposCategoria" model="Model" />
+
+        <div class="formulario-pie">
+            <a asp-action="Index" class="btn btn-secundario">Cancelar</a>
+            <button type="submit" class="btn btn-primario">Guardar categoría</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

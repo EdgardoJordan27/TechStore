@@ -1,19 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using TechStore.Models;
-using System.Linq;
+using TechStore.Services.Interfaces;
 
 namespace TechStore.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
-            var destacados = ProductosController.Lista
-                .Where(p => p.Estado == "Activo")
-                .OrderByDescending(p => p.Stock)
-                .Take(3)
-                .ToList();
+        private readonly IProductoService _productoService;
 
+        public HomeController(IProductoService productoService)
+        {
+            _productoService = productoService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var destacados = await _productoService.ObtenerDestacadosAsync(3);
             return View(destacados);
         }
 

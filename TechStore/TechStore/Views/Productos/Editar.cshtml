@@ -1,0 +1,30 @@
+@model ProductoFormViewModel
+@{
+    ViewData["Title"] = "Editar producto";
+}
+
+<div class="container panel-admin panel-estrecho">
+    <div class="panel-cabecera">
+        <div>
+            <h1 class="panel-titulo">Editar producto</h1>
+            <p class="panel-subtitulo">Identificador del registro: @Model.Id</p>
+        </div>
+    </div>
+
+    <form asp-action="Editar" asp-route-id="@Model.Id" method="post" class="formulario-panel">
+        <div asp-validation-summary="ModelOnly" class="aviso aviso-error"></div>
+
+        <input type="hidden" asp-for="Id" />
+
+        <partial name="_CamposProducto" model="Model" />
+
+        <div class="formulario-pie">
+            <a asp-action="Index" class="btn btn-secundario">Cancelar</a>
+            <button type="submit" class="btn btn-primario">Guardar cambios</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,28 @@
+@model ProductoFormViewModel
+@{
+    ViewData["Title"] = "Nuevo producto";
+}
+
+<div class="container panel-admin panel-estrecho">
+    <div class="panel-cabecera">
+        <div>
+            <h1 class="panel-titulo">Nuevo producto</h1>
+            <p class="panel-subtitulo">Complete los datos para registrarlo en el catálogo.</p>
+        </div>
+    </div>
+
+    <form asp-action="Agregar" method="post" class="formulario-panel">
+        <div asp-validation-summary="ModelOnly" class="aviso aviso-error"></div>
+
+        <partial name="_CamposProducto" model="Model" />
+
+        <div class="formulario-pie">
+            <a asp-action="Index" class="btn btn-secundario">Cancelar</a>
+            <button type="submit" class="btn btn-primario">Guardar producto</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -239,3 +239,316 @@ a {
         opacity: 0.9;
         color: #fff;
     }
+
+
+/* Panel de administracion (Unidad II) */
+
+.panel-admin {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+}
+
+.panel-estrecho {
+    max-width: 880px;
+}
+
+.panel-cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panel-titulo {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.panel-subtitulo {
+    margin: 0.25rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Botones */
+
+.btn-primario,
+.btn-secundario,
+.btn-peligro {
+    --bs-btn-border-radius: 6px;
+    --bs-btn-font-weight: 500;
+}
+
+.btn-primario {
+    --bs-btn-color: #0b1220;
+    --bs-btn-bg: var(--accent-cyan);
+    --bs-btn-border-color: var(--accent-cyan);
+    --bs-btn-hover-color: #0b1220;
+    --bs-btn-hover-bg: #4de0ff;
+    --bs-btn-hover-border-color: #4de0ff;
+    --bs-btn-active-color: #0b1220;
+    --bs-btn-active-bg: #00b8de;
+    --bs-btn-active-border-color: #00b8de;
+    --bs-btn-font-weight: 600;
+}
+
+.btn-secundario {
+    --bs-btn-color: var(--text-primary);
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: rgba(255, 255, 255, 0.22);
+    --bs-btn-hover-color: var(--text-primary);
+    --bs-btn-hover-bg: rgba(255, 255, 255, 0.06);
+    --bs-btn-hover-border-color: rgba(255, 255, 255, 0.5);
+    --bs-btn-active-color: var(--text-primary);
+    --bs-btn-active-bg: rgba(255, 255, 255, 0.1);
+    --bs-btn-active-border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-peligro {
+    --bs-btn-color: #ffffff;
+    --bs-btn-bg: #b4384a;
+    --bs-btn-border-color: #b4384a;
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: #c9475a;
+    --bs-btn-hover-border-color: #c9475a;
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-active-bg: #9c2f3f;
+    --bs-btn-active-border-color: #9c2f3f;
+}
+
+.btn-fila {
+    --bs-btn-padding-y: 0.25rem;
+    --bs-btn-padding-x: 0.7rem;
+    --bs-btn-font-size: 0.8rem;
+}
+
+.btn-fila-peligro:hover {
+    --bs-btn-hover-color: #f0a0aa;
+    --bs-btn-hover-border-color: #b4384a;
+}
+
+/* Tabla de productos */
+
+.tabla-contenedor {
+    background-color: var(--bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabla-admin {
+    --bs-table-bg: transparent;
+    --bs-table-color: var(--text-primary);
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.03);
+    margin-bottom: 0;
+}
+
+    .tabla-admin thead th {
+        padding: 0.85rem 1rem;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text-muted);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .tabla-admin tbody td {
+        padding: 0.85rem 1rem;
+        border-color: rgba(255, 255, 255, 0.06);
+    }
+
+.celda-producto {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.miniatura {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    object-fit: cover;
+    background-color: #0d0d18;
+}
+
+.miniatura-vacia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed rgba(255, 255, 255, 0.18);
+    color: var(--text-muted);
+}
+
+.descripcion-corta {
+    max-width: 300px;
+    overflow: hidden;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stock-bajo {
+    color: #e0a43a;
+}
+
+.acciones-fila {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.4rem;
+}
+
+.estado {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.85rem;
+}
+
+    .estado::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--estado-color, #8a8a9a);
+    }
+
+.estado-activo {
+    --estado-color: #3ab07a;
+}
+
+.estado-nuevo {
+    --estado-color: var(--accent-cyan);
+}
+
+.estado-oferta {
+    --estado-color: #e0a43a;
+}
+
+.estado-agotado {
+    --estado-color: #8a8a9a;
+}
+
+.estado-vacio {
+    padding: 3rem 1rem;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* Formularios y confirmaciones */
+
+.formulario-panel {
+    padding: 1.75rem;
+    background-color: var(--bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+}
+
+.formulario-pie {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.campo-error {
+    display: block;
+    margin-top: 0.3rem;
+    color: #e5707e;
+    font-size: 0.8rem;
+}
+
+.ayuda-campo {
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}
+
+.input-validation-error {
+    border-color: #b4384a !important;
+}
+
+.input-group-text {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-muted);
+}
+
+.detalle-lista {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 0.7rem 1rem;
+    margin: 0;
+}
+
+    .detalle-lista dt {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        font-weight: 400;
+    }
+
+    .detalle-lista dd {
+        margin: 0;
+    }
+
+/* Avisos */
+
+.aviso {
+    margin-bottom: 1.25rem;
+    padding: 0.75rem 1rem;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-left: 3px solid;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.aviso-ok {
+    border-color: #3ab07a;
+}
+
+.aviso-error {
+    border-color: #b4384a;
+}
+
+    .aviso-error ul {
+        margin: 0;
+        padding-left: 1.1rem;
+    }
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Categorias con acciones */
+
+.categoria-acciones {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 1.1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tarjeta-sin-imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: #0d0d18;
+    color: var(--text-muted);
+    font-size: 2.5rem;
+}
