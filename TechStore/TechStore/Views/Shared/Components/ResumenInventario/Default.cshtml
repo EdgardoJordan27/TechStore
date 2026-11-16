@@ -1,0 +1,28 @@
+@model ResumenInventarioViewModel
+
+<div class="resumen-inventario row g-3 mb-4">
+    <div class="col-6 col-lg-3">
+        <div class="resumen-item">
+            <span class="resumen-valor">@Model.TotalProductos</span>
+            <span class="resumen-etiqueta">Productos</span>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="resumen-item">
+            <span class="resumen-valor">@Model.Agotados</span>
+            <span class="resumen-etiqueta">Agotados</span>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="resumen-item">
+            <span class="resumen-valor">@Model.StockBajo</span>
+            <span class="resumen-etiqueta">Stock bajo (5 o menos)</span>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="resumen-item">
+            <span class="resumen-valor">$@Model.ValorInventario.ToString("N2")</span>
+            <span class="resumen-etiqueta">Valor del inventario</span>
+        </div>
+    </div>
+</div>

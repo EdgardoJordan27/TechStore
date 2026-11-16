@@ -1,6 +1,8 @@
 @model List<TechStore.Models.Producto>
 @{
     ViewData["Title"] = "Productos";
+    var esAdministrador = User.IsInRole(RolesSistema.Administrador);
+    var puedeEditar = esAdministrador || User.IsInRole(RolesSistema.Vendedor);
 }
 
 <div class="container panel-admin">
@@ -11,21 +13,37 @@
                 @Model.Count producto@(Model.Count != 1 ? "s" : "") registrado@(Model.Count != 1 ? "s" : "") en el catálogo
             </p>
         </div>
-        <a asp-action="Agregar" class="btn btn-primario">
-            <i class="bi bi-plus-lg me-1"></i>Nuevo producto
-        </a>
+        @if (puedeEditar)
+        {
+            <div class="acciones-fila">
+                <a asp-controller="Reportes" asp-action="Pdf" class="btn btn-secundario">
+                    <i class="bi bi-file-earmark-pdf me-1"></i>Reporte PDF
+                </a>
+                <a asp-controller="Reportes" asp-action="Excel" class="btn btn-secundario">
+                    <i class="bi bi-file-earmark-excel me-1"></i>Exportar Excel
+                </a>
+                <a asp-action="Agregar" class="btn btn-primario">
+                    <i class="bi bi-plus-lg me-1"></i>Nuevo producto
+                </a>
+            </div>
+        }
     </div>
 
-    @if (TempData["Mensaje"] is string mensaje)
+    <partial name="_Mensajes" />
+
+    @if (puedeEditar)
     {
-        <div class="aviso aviso-ok" role="status">@mensaje</div>
+        @await Component.InvokeAsync("ResumenInventario")
     }
 
     @if (!Model.Any())
     {
         <div class="estado-vacio">
             <p class="mb-1">Todavía no hay productos registrados.</p>
-            <a asp-action="Agregar" class="text-cyan">Registrar el primero</a>
+            @if (puedeEditar)
+            {
+                <a asp-action="Agregar" class="text-cyan">Registrar el primero</a>
+            }
         </div>
     }
     else
@@ -40,7 +58,10 @@
                         <th scope="col" class="text-end">Precio</th>
                         <th scope="col" class="text-end">Stock</th>
                         <th scope="col">Estado</th>
-                        <th scope="col" class="text-end">Acciones</th>
+                        @if (puedeEditar)
+                        {
+                            <th scope="col" class="text-end">Acciones</th>
+                        }
                     </tr>
                 </thead>
                 <tbody>
@@ -68,12 +89,18 @@
                             <td class="text-end">$@producto.Precio.ToString("N2")</td>
                             <td class="text-end @(producto.Stock <= 5 ? "stock-bajo" : "")">@producto.Stock</td>
                             <td><span class="estado estado-@producto.Estado.ToLowerInvariant()">@producto.Estado</span></td>
-                            <td>
-                                <div class="acciones-fila">
-                                    <a asp-action="Editar" asp-route-id="@producto.Id" class="btn btn-secundario btn-fila">Editar</a>
-                                    <a asp-action="Eliminar" asp-route-id="@producto.Id" class="btn btn-secundario btn-fila btn-fila-peligro">Eliminar</a>
-                                </div>
-                            </td>
+                            @if (puedeEditar)
+                            {
+                                <td>
+                                    <div class="acciones-fila">
+                                        <a asp-action="Editar" asp-route-id="@producto.Id" class="btn btn-secundario btn-fila">Editar</a>
+                                        @if (esAdministrador)
+                                        {
+                                            <a asp-action="Eliminar" asp-route-id="@producto.Id" class="btn btn-secundario btn-fila btn-fila-peligro">Eliminar</a>
+                                        }
+                                    </div>
+                                </td>
+                            }
                         </tr>
                     }
                 </tbody>

@@ -552,3 +552,94 @@ a {
     color: var(--text-muted);
     font-size: 2.5rem;
 }
+
+
+/* Seguridad, errores y reportes (Unidad III) */
+
+.panel-autenticacion {
+    max-width: 520px;
+}
+
+.menu-usuario {
+    font-size: 0.85rem;
+}
+
+.navbar-tech .btn-link.nav-link {
+    border: 0;
+    text-decoration: none;
+}
+
+.insignia-rol {
+    display: inline-block;
+    padding: 0.1rem 0.55rem;
+    border: 1px solid var(--accent-cyan);
+    border-radius: 999px;
+    color: var(--accent-cyan);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.selector-rol {
+    max-width: 170px;
+}
+
+.pagina-estado {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.pagina-estado-icono {
+    font-size: 3.5rem;
+    color: var(--accent-magenta);
+}
+
+.pagina-estado-codigo {
+    margin: 0.5rem 0 0;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent-cyan);
+}
+
+.pagina-estado .panel-titulo {
+    margin-top: 0.75rem;
+}
+
+.pagina-estado .panel-subtitulo {
+    max-width: 480px;
+    margin: 0.75rem auto 0;
+}
+
+.pagina-estado-referencia {
+    margin-top: 1.25rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.pagina-estado-acciones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+.resumen-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.9rem 1.1rem;
+    background-color: var(--bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+}
+
+.resumen-valor {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.resumen-etiqueta {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}

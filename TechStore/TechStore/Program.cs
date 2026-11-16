@@ -1,37 +1,79 @@
 using System.Globalization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using QuestPDF.Infrastructure;
 using TechStore.Data;
+using TechStore.Infrastructure;
 using TechStore.Services;
 using TechStore.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Logging: consola (por defecto) y archivo en la carpeta Logs del proyecto.
+builder.Logging.AddProvider(new ProveedorLogArchivo(Path.Combine(builder.Environment.ContentRootPath, "Logs")));
+
 builder.Services.AddControllersWithViews();
 
 // Capa de datos: Entity Framework Core con SQL Server.
 builder.Services.AddDbContext<TechStoreDbContext>(opciones =>
-    opciones.UseSqlServer(builder.Configuration.GetConnectionString("TechStoreConnection")));
+    opciones.UseSqlServer(builder.Configuration.GetConnectionString("TechStoreConnection"))
+            .AddInterceptors(new NumericRoundAbortInterceptor()));
+
+// Autenticación y roles con ASP.NET Core Identity.
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(opciones =>
+{
+    opciones.Password.RequiredLength = 6;
+    opciones.Password.RequireDigit = true;
+    opciones.Password.RequireUppercase = true;
+    opciones.Password.RequireLowercase = true;
+    opciones.Password.RequireNonAlphanumeric = false;
+    opciones.User.RequireUniqueEmail = true;
+})
+.AddEntityFrameworkStores<TechStoreDbContext>()
+.AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(opciones =>
+{
+    opciones.LoginPath = "/Account/Login";
+    opciones.AccessDeniedPath = "/Account/AccesoDenegado";
+});
 
 // Inversión de control: los controladores piden interfaces y el contenedor
 // decide qué implementación entregar.
 builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+builder.Services.AddScoped<IReporteService, ReporteService>();
+
+// Licencia de QuestPDF (uso comunitario).
+QuestPDF.Settings.License = LicenseType.Community;
 
 var app = builder.Build();
 
-// Aplica las migraciones pendientes al iniciar, de modo que la base de datos
-// y los datos iniciales existan aunque el proyecto se ejecute en otro equipo.
+// Aplica las migraciones pendientes al iniciar y crea los roles y usuarios iniciales.
+// Con un proveedor que no es relacional (pruebas con base en memoria) solo se crea el esquema.
 using (var alcance = app.Services.CreateScope())
 {
     var contexto = alcance.ServiceProvider.GetRequiredService<TechStoreDbContext>();
-    contexto.Database.Migrate();
+
+    if (contexto.Database.IsRelational())
+    {
+        contexto.Database.Migrate();
+    }
+    else
+    {
+        contexto.Database.EnsureCreated();
+    }
+
+    await IdentidadInicial.SembrarAsync(alcance.ServiceProvider);
 }
+
+// Manejo global de errores: se usa en todos los entornos para mostrar la página personalizada.
+app.UseExceptionHandler("/Home/Error");
+app.UseStatusCodePagesWithReExecute("/Home/Error", "?codigo={0}");
 
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -48,6 +90,7 @@ app.UseRequestLocalization(new RequestLocalizationOptions
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
@@ -58,3 +101,8 @@ app.MapControllerRoute(
     .WithStaticAssets();
 
 app.Run();
+
+// Permite que el proyecto de pruebas use WebApplicationFactory<Program>.
+public partial class Program
+{
+}

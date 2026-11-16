@@ -1,0 +1,46 @@
+@model RegistroViewModel
+@{
+    ViewData["Title"] = "Crear cuenta";
+}
+
+<div class="container panel-admin panel-autenticacion">
+    <div class="panel-cabecera">
+        <div>
+            <h1 class="panel-titulo">Crear cuenta</h1>
+            <p class="panel-subtitulo">Las cuentas nuevas se crean con el rol Cliente.</p>
+        </div>
+    </div>
+
+    <form asp-action="Register" method="post" class="formulario-panel">
+        <div asp-validation-summary="ModelOnly" class="aviso aviso-error"></div>
+
+        <div class="row g-3">
+            <div class="col-12">
+                <label asp-for="Correo" class="form-label"></label>
+                <input asp-for="Correo" class="form-control" autocomplete="username" />
+                <span asp-validation-for="Correo" class="campo-error"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Clave" class="form-label"></label>
+                <input asp-for="Clave" class="form-control" autocomplete="new-password" />
+                <span asp-validation-for="Clave" class="campo-error"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="ConfirmarClave" class="form-label"></label>
+                <input asp-for="ConfirmarClave" class="form-control" autocomplete="new-password" />
+                <span asp-validation-for="ConfirmarClave" class="campo-error"></span>
+            </div>
+        </div>
+
+        <div class="formulario-pie">
+            <a asp-action="Login" class="btn btn-secundario">Ya tengo cuenta</a>
+            <button type="submit" class="btn btn-primario">Registrarme</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Reportes";
+}
+
+<div class="container panel-admin panel-estrecho">
+    <div class="panel-cabecera">
+        <div>
+            <h1 class="panel-titulo">Reportes de productos</h1>
+            <p class="panel-subtitulo">Los datos se toman de la base de datos en el momento de la descarga.</p>
+        </div>
+    </div>
+
+    <partial name="_Mensajes" />
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="categoria-card d-flex flex-column h-100">
+                <i class="bi bi-file-earmark-pdf categoria-icono"></i>
+                <h5 class="mt-3">Reporte en PDF</h5>
+                <p class="text-muted small flex-grow-1">
+                    Listado con nombre, descripción, precio, categoría, stock y estado de cada producto.
+                </p>
+                <a asp-action="Pdf" class="btn btn-primario">Generar PDF</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="categoria-card d-flex flex-column h-100">
+                <i class="bi bi-file-earmark-excel categoria-icono"></i>
+                <h5 class="mt-3">Exportar a Excel</h5>
+                <p class="text-muted small flex-grow-1">
+                    Archivo .xlsx con ID, nombre, descripción, precio, categoría, stock y estado.
+                </p>
+                <a asp-action="Excel" class="btn btn-primario">Exportar Excel</a>
+            </div>
+        </div>
+    </div>
+</div>

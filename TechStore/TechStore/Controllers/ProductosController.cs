@@ -1,28 +1,40 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using TechStore.Models;
 using TechStore.Services.Interfaces;
 using TechStore.ViewModels;
 
 namespace TechStore.Controllers
 {
+    [Authorize]
     public class ProductosController : Controller
     {
         private readonly IProductoService _productoService;
         private readonly ICategoriaService _categoriaService;
+        private readonly ILogger<ProductosController> _logger;
 
-        public ProductosController(IProductoService productoService, ICategoriaService categoriaService)
+        public ProductosController(
+            IProductoService productoService,
+            ICategoriaService categoriaService,
+            ILogger<ProductosController> logger)
         {
             _productoService = productoService;
             _categoriaService = categoriaService;
+            _logger = logger;
         }
+
+        private string UsuarioActual => User?.Identity?.Name ?? "anónimo";
 
         public async Task<IActionResult> Index()
         {
             var productos = await _productoService.ObtenerTodosAsync();
+            _logger.LogInformation("Consulta de productos por {Usuario}: {Cantidad} registros", UsuarioActual, productos.Count);
             return View(productos);
         }
 
+        [Authorize(Roles = RolesSistema.Personal)]
         [HttpGet]
         public async Task<IActionResult> Agregar()
         {
@@ -31,6 +43,7 @@ namespace TechStore.Controllers
             return View(modelo);
         }
 
+        [Authorize(Roles = RolesSistema.Personal)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Agregar(ProductoFormViewModel modelo)
@@ -43,12 +56,24 @@ namespace TechStore.Controllers
                 return View(modelo);
             }
 
-            await _productoService.AgregarAsync(ConvertirAEntidad(modelo));
+            try
+            {
+                await _productoService.AgregarAsync(ConvertirAEntidad(modelo));
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "Error al registrar el producto {Nombre}", modelo.Nombre);
+                ModelState.AddModelError(string.Empty, "No se pudo registrar el producto. Intente nuevamente.");
+                await CargarCategoriasAsync(modelo);
+                return View(modelo);
+            }
 
+            _logger.LogInformation("Producto registrado: {Nombre} por {Usuario}", modelo.Nombre.Trim(), UsuarioActual);
             TempData["Mensaje"] = $"El producto \"{modelo.Nombre.Trim()}\" se registró correctamente.";
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = RolesSistema.Personal)]
         [HttpGet]
         public async Task<IActionResult> Editar(int id)
         {
@@ -74,6 +99,7 @@ namespace TechStore.Controllers
             return View(modelo);
         }
 
+        [Authorize(Roles = RolesSistema.Personal)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Editar(int id, ProductoFormViewModel modelo)
@@ -91,16 +117,32 @@ namespace TechStore.Controllers
                 return View(modelo);
             }
 
-            var actualizado = await _productoService.EditarAsync(ConvertirAEntidad(modelo));
+            bool actualizado;
+            try
+            {
+                actualizado = await _productoService.EditarAsync(ConvertirAEntidad(modelo));
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "Error al editar el producto {Id}", modelo.Id);
+                ModelState.AddModelError(string.Empty, "No se pudo actualizar el producto. Intente nuevamente.");
+                await CargarCategoriasAsync(modelo);
+                return View(modelo);
+            }
+
             if (!actualizado)
             {
+                _logger.LogWarning("Se intentó editar un producto inexistente: {Id}", modelo.Id);
                 return NotFound();
             }
+
+            _logger.LogInformation("Producto editado: {Id} por {Usuario}", modelo.Id, UsuarioActual);
 
             TempData["Mensaje"] = $"El producto \"{modelo.Nombre.Trim()}\" se actualizó correctamente.";
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = RolesSistema.Administrador)]
         [HttpGet]
         public async Task<IActionResult> Eliminar(int id)
         {
@@ -113,6 +155,7 @@ namespace TechStore.Controllers
             return View(producto);
         }
 
+        [Authorize(Roles = RolesSistema.Administrador)]
         [HttpPost, ActionName("Eliminar")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EliminarConfirmado(int id)
@@ -123,11 +166,24 @@ namespace TechStore.Controllers
                 return NotFound();
             }
 
-            var eliminado = await _productoService.EliminarAsync(id);
+            bool eliminado;
+            try
+            {
+                eliminado = await _productoService.EliminarAsync(id);
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "Error al eliminar el producto {Id}", id);
+                TempData["Error"] = "No se pudo eliminar el producto. Intente nuevamente.";
+                return RedirectToAction(nameof(Index));
+            }
+
             if (!eliminado)
             {
                 return NotFound();
             }
+
+            _logger.LogWarning("Producto eliminado: {Id} ({Nombre}) por {Usuario}", id, producto.Nombre, UsuarioActual);
 
             TempData["Mensaje"] = $"El producto \"{producto.Nombre}\" se eliminó correctamente.";
             return RedirectToAction(nameof(Index));

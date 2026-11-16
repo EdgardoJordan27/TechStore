@@ -1,0 +1,55 @@
+@model List<UsuarioRolViewModel>
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<div class="container panel-admin">
+    <div class="panel-cabecera">
+        <div>
+            <h1 class="panel-titulo">Usuarios y roles</h1>
+            <p class="panel-subtitulo">@Model.Count usuario@(Model.Count != 1 ? "s" : "") registrado@(Model.Count != 1 ? "s" : "")</p>
+        </div>
+    </div>
+
+    <partial name="_Mensajes" />
+
+    <div class="tabla-contenedor table-responsive">
+        <table class="table tabla-admin align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Rol actual</th>
+                    <th scope="col" class="text-end">Cambiar rol</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var usuario in Model)
+                {
+                    <tr>
+                        <td>@usuario.Correo@(usuario.EsUsuarioActual ? " (usted)" : "")</td>
+                        <td><span class="insignia-rol">@usuario.Rol</span></td>
+                        <td>
+                            @if (usuario.EsUsuarioActual)
+                            {
+                                <div class="text-end text-muted small">No disponible</div>
+                            }
+                            else
+                            {
+                                <form asp-action="CambiarRol" method="post" class="acciones-fila">
+                                    <input type="hidden" name="id" value="@usuario.Id" />
+                                    <select name="rol" class="form-select form-select-sm selector-rol">
+                                        @foreach (var rol in RolesSistema.Todos)
+                                        {
+                                            <option value="@rol" selected="@(rol == usuario.Rol)">@rol</option>
+                                        }
+                                    </select>
+                                    <button type="submit" class="btn btn-secundario btn-fila">Guardar</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

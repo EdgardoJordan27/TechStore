@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Acceso denegado";
+    var rolActual = RolesSistema.Todos.FirstOrDefault(r => User.IsInRole(r)) ?? "sin rol";
+}
+
+<div class="container panel-admin panel-estrecho">
+    <div class="pagina-estado">
+        <i class="bi bi-shield-lock pagina-estado-icono"></i>
+        <p class="pagina-estado-codigo">403</p>
+        <h1 class="panel-titulo">Acceso denegado</h1>
+        <p class="panel-subtitulo">
+            Su cuenta (@User.Identity?.Name, rol @rolActual) no tiene permisos para ver esta sección.
+            Si cree que es un error, comuníquese con un administrador.
+        </p>
+        <div class="pagina-estado-acciones">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primario">Volver al inicio</a>
+            <a asp-controller="Productos" asp-action="Index" class="btn btn-secundario">Ver productos</a>
+        </div>
+    </div>
+</div>
